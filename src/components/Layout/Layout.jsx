@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import icon from '../../images/home_icon.svg';
 
 export const Layout = () => {
   return (
@@ -7,7 +8,9 @@ export const Layout = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to="/">Home Page</NavLink>
+              <NavLink to="/">
+                <img src={icon} alt="home" width="50" />
+              </NavLink>
             </li>
             <li>
               <NavLink to="login">Log In</NavLink>
@@ -21,6 +24,9 @@ export const Layout = () => {
       <main>
         <aside>
           <ul>
+            <li>
+              <NavLink to="/">Home Page</NavLink>
+            </li>
             <li>
               <NavLink to="phonebook">Phonebook</NavLink>
             </li>
