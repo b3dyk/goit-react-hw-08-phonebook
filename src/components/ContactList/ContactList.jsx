@@ -28,8 +28,8 @@ export const ContactList = () => {
       {error && <p>Oops, something went wrong</p>}
       {!isLoading && !error && (
         <List>
-          {contacts.map(({ id, name, phone }) => (
-            <ContactItem key={id} id={id} name={name} phone={phone} />
+          {contacts.map(({ id, name, number }) => (
+            <ContactItem key={id} id={id} name={name} number={number} />
           ))}
         </List>
       )}

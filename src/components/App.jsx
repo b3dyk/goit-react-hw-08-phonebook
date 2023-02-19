@@ -1,7 +1,7 @@
 import HomePage from 'pages/HomePage/HomePage';
-import JoinPage from 'pages/JoinPage/JoinPage';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import LoginPage from 'pages/LoginPage/LoginPage';
-import PhonebookPage from 'pages/PhonebookPage/PhonebookPage';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 
@@ -10,9 +10,9 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="join" element={<JoinPage />} />
+        <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
-        <Route path="phonebook" element={<PhonebookPage />} />
+        <Route path="contacts" element={<ContactsPage />} />
       </Route>
     </Routes>
   );

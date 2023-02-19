@@ -9,7 +9,9 @@ export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
 
   const [name, setName] = useState(() => localStorage.getItem('name') ?? '');
-  const [phone, setPhone] = useState(() => localStorage.getItem('phone') ?? '');
+  const [number, setNumber] = useState(
+    () => localStorage.getItem('number') ?? ''
+  );
 
   const dispatch = useDispatch();
 
@@ -20,9 +22,9 @@ export const ContactForm = () => {
         setName(value);
         break;
 
-      case 'phone':
-        localStorage.setItem('phone', value);
-        setPhone(value);
+      case 'number':
+        localStorage.setItem('number', value);
+        setNumber(value);
         break;
 
       default:
@@ -44,12 +46,12 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
 
     localStorage.removeItem('name');
-    localStorage.removeItem('phone');
+    localStorage.removeItem('number');
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -72,8 +74,8 @@ export const ContactForm = () => {
         <span>Number</span>
         <Input
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           placeholder="123-45-67"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

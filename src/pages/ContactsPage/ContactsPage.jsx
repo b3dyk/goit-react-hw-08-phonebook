@@ -1,16 +1,14 @@
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
-import { Container, Heading } from './PhonebookPage.styled';
+import { Container, Heading } from './ContactsPage.styled';
 
-const PhonebookPage = () => {
+const ContactsPage = () => {
   return (
     <Container>
-      <Heading>Phonebook</Heading>
+      <Heading>Contacts</Heading>
 
       <ContactForm />
-
-      <Heading>Contacts</Heading>
 
       <Filter />
 
@@ -19,4 +17,4 @@ const PhonebookPage = () => {
   );
 };
 
-export default PhonebookPage;
+export default ContactsPage;

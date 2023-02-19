@@ -1,12 +1,22 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { authLogin } from 'redux/auth/auth.operations';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = evt => {
+  const handleSubmit = async evt => {
     evt.preventDefault();
-    console.log({ email, password });
+    try {
+      await dispatch(authLogin({ email, password })).unwrap();
+      navigate('/', { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -1,5 +1,8 @@
-import axios from 'axios';
+import { publicApi } from 'http/http';
 import { useReducer, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { authLogin } from 'redux/auth/auth.operations';
 
 const initState = {
   name: '',
@@ -11,26 +14,25 @@ const formReducer = (state, { type, payload }) => {
   return (state = { ...state, [type]: payload });
 };
 
-const JoinPage = () => {
-  const [state, dispatch] = useReducer(formReducer, initState);
+const RegisterPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [state, reducerDispatch] = useReducer(formReducer, initState);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = ({ target: { name, value } }) => {
-    dispatch({ type: name, payload: value });
+    reducerDispatch({ type: name, payload: value });
   };
 
   const handleSubmit = async evt => {
     evt.preventDefault();
-    const newUser = JSON.stringify(state);
     try {
       setIsLoading(true);
-
-      await axios.post(
-        'https://connections-api.herokuapp.com/users/signup',
-        state
-      );
-
+      await publicApi.post('/users/signup', state);
       setIsLoading(false);
+
+      dispatch(authLogin({ email: state.email, password: state.password }));
+      navigate('/', { replace: true });
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -74,4 +76,4 @@ const JoinPage = () => {
   );
 };
 
-export default JoinPage;
+export default RegisterPage;

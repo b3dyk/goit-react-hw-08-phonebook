@@ -1,25 +1,34 @@
-import { NavLink, Outlet } from 'react-router-dom';
-import icon from '../../images/home_icon.svg';
+import { Navigation } from 'components/Navigation/Navigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import { authLogout } from 'redux/auth/auth.operations';
+import { selectLoginToken } from 'redux/auth/auth.selectors';
+import icon from '../../images/logo.svg';
 
 export const Layout = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(selectLoginToken);
+
+  const handleLogout = () => {
+    dispatch(authLogout());
+  };
   return (
     <>
       <header>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/">
-                <img src={icon} alt="home" width="50" />
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="login">Log In</NavLink>
-            </li>
-            <li>
-              <NavLink to="join">Sign In</NavLink>
-            </li>
-          </ul>
-        </nav>
+        <Link to="/">
+          <img src={icon} alt="home" width="150" />
+        </Link>
+        {token ? (
+          <>
+            <p>Hello, {token.user.name}</p>
+            <p>{token.user.email}</p>
+            <button type="button" onClick={handleLogout}>
+              Log Out
+            </button>
+          </>
+        ) : (
+          <Navigation />
+        )}
       </header>
       <main>
         <aside>
@@ -27,9 +36,11 @@ export const Layout = () => {
             <li>
               <NavLink to="/">Home Page</NavLink>
             </li>
-            <li>
-              <NavLink to="phonebook">Phonebook</NavLink>
-            </li>
+            {token && (
+              <li>
+                <NavLink to="contacts">Phonebook</NavLink>
+              </li>
+            )}
           </ul>
         </aside>
         <Outlet />
