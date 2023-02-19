@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Backdrop, Button, ModalWindow, Wrapper } from './DeleteModal.styled';
+import { Button, Wrapper } from './Delete.styled';
 import { ThemeProvider } from 'styled-components';
 import { deleteContact } from 'redux/contacts/contacts.thunk';
 
@@ -15,7 +15,7 @@ const theme = {
   main: '#ff6242',
 };
 
-export const DeleteModal = ({ id, onClose }) => {
+export const Delete = ({ id, onClose }) => {
   const dispatch = useDispatch();
 
   const handleClose = evt => {
@@ -30,25 +30,23 @@ export const DeleteModal = ({ id, onClose }) => {
     onClose(false);
   };
   return (
-    <Backdrop onClick={handleClose}>
-      <ModalWindow>
-        <h4>Are you shure you want to delete this buddy?</h4>
-        <Wrapper>
-          <ThemeProvider theme={theme}>
-            <Button type="button" onClick={handleDelete}>
-              F@&k this c@#t!
-            </Button>
-          </ThemeProvider>
-          <Button type="button" onClick={handleClose}>
-            No way
+    <>
+      <h4>Are you shure you want to delete this buddy?</h4>
+      <Wrapper>
+        <ThemeProvider theme={theme}>
+          <Button type="button" onClick={handleDelete}>
+            F@&k this c@#t!
           </Button>
-        </Wrapper>
-      </ModalWindow>
-    </Backdrop>
+        </ThemeProvider>
+        <Button type="button" onClick={handleClose}>
+          No way
+        </Button>
+      </Wrapper>
+    </>
   );
 };
 
-DeleteModal.propTypes = {
+Delete.propTypes = {
   id: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 };

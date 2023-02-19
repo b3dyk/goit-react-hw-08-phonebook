@@ -1,19 +1,43 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Item, Text } from './ContactItem.styled';
-import { DeleteModal } from 'components/DeleteModal/DeleteModal';
+import { Delete } from 'components/Delete/Delete';
+import { Edit } from 'components/Edit/Edit';
+import { Modal } from 'components/Modal/Modal';
 
-export const ContactItem = ({ id, name, phone }) => {
-  const [deleteModal, setDeleteModal] = useState(false);
+export const ContactItem = ({ id, name, number }) => {
+  const [isModalShown, setIsModalShown] = useState(false);
+  const [clickedButton, setClickedButton] = useState('');
+
+  const handleClick = ({ target: { name } }) => {
+    setIsModalShown(true);
+    setClickedButton(name);
+  };
   return (
     <Item>
       <Text>
-        {name}: {phone}
+        {name}: {number}
       </Text>
-      <Button type="button" onClick={() => setDeleteModal(true)}>
+      <Button type="button" name="edit" onClick={handleClick}>
+        Edit
+      </Button>
+      <Button type="button" name="delete" onClick={handleClick}>
         Delete
       </Button>
-      {deleteModal && <DeleteModal id={id} onClose={setDeleteModal} />}
+      {isModalShown && (
+        <Modal onClose={setIsModalShown}>
+          {clickedButton === 'edit' ? (
+            <Edit
+              id={id}
+              name={name}
+              number={number}
+              onClose={setIsModalShown}
+            />
+          ) : (
+            <Delete id={id} onClose={setIsModalShown} />
+          )}
+        </Modal>
+      )}
     </Item>
   );
 };
@@ -21,5 +45,5 @@ export const ContactItem = ({ id, name, phone }) => {
 ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };
