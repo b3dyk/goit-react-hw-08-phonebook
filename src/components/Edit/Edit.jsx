@@ -1,11 +1,10 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Button, Form, theme, Wrapper } from './Edit.styled';
-import { ThemeProvider } from 'styled-components';
+import { Form, Wrapper } from './Edit.styled';
 import { editContact } from 'redux/contacts/contacts.thunk';
 import { useState } from 'react';
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 
 export const Edit = ({ id, name, number, onClose }) => {
   const [editedName, setEditedName] = useState(name);
@@ -64,10 +63,11 @@ export const Edit = ({ id, name, number, onClose }) => {
       />
 
       <Wrapper>
-        <ThemeProvider theme={theme}>
-          <Button>Accept</Button>
-        </ThemeProvider>
-        <Button type="button" onClick={handleClose}>
+        <Button variant="contained" color="error" type="submit">
+          Accept
+        </Button>
+
+        <Button variant="contained" type="button" onClick={handleClose}>
           Discard
         </Button>
       </Wrapper>

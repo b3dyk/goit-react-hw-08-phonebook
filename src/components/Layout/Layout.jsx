@@ -1,8 +1,8 @@
-import { Button, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import { Navigation } from 'components/Navigation/Navigation';
-import { useDispatch, useSelector } from 'react-redux';
+import { UserMenu } from 'components/UserMenu/UserMenu';
+import { useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
-import { authLogout } from 'redux/auth/auth.operations';
 import { selectLoginToken } from 'redux/auth/auth.selectors';
 import icon from '../../images/logo.png';
 import {
@@ -12,18 +12,12 @@ import {
   List,
   SideBar,
   StyledLink,
-  Thumb,
-  UserInfo,
   Wrapper,
 } from './Layout.styled';
 
 export const Layout = () => {
-  const dispatch = useDispatch();
   const token = useSelector(selectLoginToken);
 
-  const handleLogout = () => {
-    dispatch(authLogout());
-  };
   return (
     <>
       <Header>
@@ -32,24 +26,7 @@ export const Layout = () => {
             <Link to="/">
               <img src={icon} alt="home" width="150" />
             </Link>
-            {token ? (
-              <Thumb>
-                <UserInfo>
-                  <p>Hello, {token.user.name}</p>
-                  <p>{token.user.email}</p>
-                </UserInfo>
-                <Button
-                  variant="outlined"
-                  color="error"
-                  type="button"
-                  onClick={handleLogout}
-                >
-                  Log Out
-                </Button>
-              </Thumb>
-            ) : (
-              <Navigation />
-            )}
+            {token ? <UserMenu /> : <Navigation />}
           </HeaderWrapper>
         </Container>
       </Header>
@@ -63,7 +40,7 @@ export const Layout = () => {
                 </Item>
                 {token && (
                   <Item>
-                    <StyledLink to="contacts">Phonebook</StyledLink>
+                    <StyledLink to="contacts">Contacts</StyledLink>
                   </Item>
                 )}
               </List>

@@ -1,4 +1,3 @@
-@import-normalize; /* bring in normalize.css styles */
 :root {
   --color-btn-main: #1976d2;
   --color-btn-main-hover: #1565c0;
@@ -6,6 +5,7 @@
   --color-btn-danger-hover: #d32f2f;
 
   --color-text-primary: #020332;
+  --color-text-secondary: #535353;
   --color-accent: #e65100;
 
   --color-bg-secindary: #ececec;

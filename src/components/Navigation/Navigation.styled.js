@@ -12,12 +12,16 @@ export const List = styled.ul`
 export const StyledLink = styled(NavLink)`
   color: var(--color-text-primary);
   text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
 
   :hover {
-    color: var(--color-accent);
+    background-color: var(--color-accent);
+    color: #fff;
   }
 
   &.active {
-    color: var(--color-accent);
+    background-color: var(--color-accent);
+    color: #fff;
   }
 `;

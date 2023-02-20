@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  color: #122236;
+  color: var(--color-text-primary);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin-top: 16px;
-  font-size: 24px;
+  font-size: 18px;
+  line-height: 1.2;
   padding: 24px;
+  width: 600px;
 `;
 
 export const Heading = styled.h2`

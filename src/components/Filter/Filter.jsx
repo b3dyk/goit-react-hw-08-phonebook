@@ -1,8 +1,8 @@
+import { TextField } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContactsAction } from 'redux/filter/filter.slice';
 import { selectFilter } from 'redux/selectors';
-import { Input } from './Filter.styled';
 
 export const Filter = () => {
   const filter = useSelector(selectFilter);
@@ -12,7 +12,7 @@ export const Filter = () => {
     dispatch(filterContactsAction(value));
 
   return (
-    <Input
+    <TextField
       id="standard-basic"
       label="Search by name"
       variant="standard"

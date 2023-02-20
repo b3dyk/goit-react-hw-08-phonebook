@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Button, theme, Wrapper } from './Delete.styled';
-import { ThemeProvider } from 'styled-components';
+import { Wrapper } from './Delete.styled';
 import { deleteContact } from 'redux/contacts/contacts.thunk';
+import { Button } from '@mui/material';
 
 export const Delete = ({ id, onClose }) => {
   const dispatch = useDispatch();
@@ -21,14 +21,13 @@ export const Delete = ({ id, onClose }) => {
   };
   return (
     <>
-      <h5>Are you shure you want to delete this buddy?</h5>
+      <h4>Are you shure you want delete this buddy?</h4>
       <Wrapper>
-        <ThemeProvider theme={theme}>
-          <Button type="button" onClick={handleDelete}>
-            F@&k this c@#t!
-          </Button>
-        </ThemeProvider>
-        <Button type="button" onClick={handleClose}>
+        <Button variant="contained" color="error" onClick={handleDelete}>
+          F@&k this c@#t!
+        </Button>
+
+        <Button variant="contained" onClick={handleClose}>
           Nah, it's fine
         </Button>
       </Wrapper>

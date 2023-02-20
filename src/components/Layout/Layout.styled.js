@@ -14,24 +14,17 @@ export const HeaderWrapper = styled.div`
   padding: 24px;
 `;
 
-export const UserInfo = styled.div``;
-
 export const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 24px;
 `;
 
-export const Thumb = styled.div`
-  display: flex;
-  gap: 16px;
-`;
-
 export const SideBar = styled.aside`
   min-width: 200px;
   padding: 36px;
   background-color: var(--color-bg-secindary);
-  min-height: 550px;
+  height: 50vh;
 `;
 
 export const List = styled.ul`
@@ -40,11 +33,11 @@ export const List = styled.ul`
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 `;
 
 export const Item = styled.li`
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
   :hover {
     background-color: var(--color-btn-main);
@@ -59,6 +52,8 @@ export const Item = styled.li`
 export const StyledLink = styled(NavLink)`
   display: block;
   color: var(--color-text-primary);
+  font-size: 20px;
+  line-height: 1.2;
   text-decoration: none;
   padding: 8px 16px;
 
