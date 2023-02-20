@@ -16,6 +16,12 @@ export const Item = styled.li`
   }
 `;
 
+export const InfoThumb = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
+
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,10 +29,6 @@ export const TextWrapper = styled.div`
 `;
 
 export const NameText = styled.p`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 16px;
   margin: 0;
   max-width: 400px;
 `;
@@ -34,7 +36,7 @@ export const NumberText = styled.p`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   margin: 0;
   max-width: 500px;
   color: var(--color-text-secondary);

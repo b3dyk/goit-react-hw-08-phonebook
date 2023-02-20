@@ -3,6 +3,7 @@ import Avatar from 'react-avatar';
 import PropTypes from 'prop-types';
 import {
   BtnThumb,
+  InfoThumb,
   Item,
   NameText,
   NumberText,
@@ -27,16 +28,18 @@ export const ContactItem = ({ id, name, number }) => {
   return (
     <>
       <Item>
-        <TextWrapper>
-          <NameText>
-            <Avatar name={name} size="30" round={true} />
-            {name}
-          </NameText>
-          <NumberText>
-            <PhoneIcon />
-            {number}
-          </NumberText>
-        </TextWrapper>
+        <InfoThumb>
+          <div>
+            <Avatar name={name} size="50" round={true} />
+          </div>
+          <TextWrapper>
+            <NameText>{name}</NameText>
+            <NumberText>
+              <PhoneIcon />
+              {number}
+            </NumberText>
+          </TextWrapper>
+        </InfoThumb>
         <BtnThumb>
           <IconButton aria-label="edit" name="edit" onClick={handleClick}>
             <EditIcon />
