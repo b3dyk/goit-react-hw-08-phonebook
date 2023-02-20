@@ -14,7 +14,7 @@ const LoginPage = () => {
     try {
       await dispatch(authLogin({ email, password })).unwrap();
     } catch (error) {
-      console.log(error);
+      alert('Invalid email or password. Please try again');
     }
   };
 

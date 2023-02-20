@@ -15,7 +15,7 @@ export const UserMenu = () => {
   return (
     <Thumb>
       <Text>
-        Hello, <b>{token.user.name}</b>
+        Hello, <b>{token.user.name}</b>!
       </Text>
       <Text>{token.user.email}</Text>
 
