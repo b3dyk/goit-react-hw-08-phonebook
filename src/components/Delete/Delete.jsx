@@ -1,19 +1,9 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Button, Wrapper } from './Delete.styled';
+import { Button, theme, Wrapper } from './Delete.styled';
 import { ThemeProvider } from 'styled-components';
 import { deleteContact } from 'redux/contacts/contacts.thunk';
-
-Button.defaultProps = {
-  theme: {
-    main: '#45b6fe',
-  },
-};
-
-const theme = {
-  main: '#ff6242',
-};
 
 export const Delete = ({ id, onClose }) => {
   const dispatch = useDispatch();
@@ -31,7 +21,7 @@ export const Delete = ({ id, onClose }) => {
   };
   return (
     <>
-      <h4>Are you shure you want to delete this buddy?</h4>
+      <h5>Are you shure you want to delete this buddy?</h5>
       <Wrapper>
         <ThemeProvider theme={theme}>
           <Button type="button" onClick={handleDelete}>
@@ -39,7 +29,7 @@ export const Delete = ({ id, onClose }) => {
           </Button>
         </ThemeProvider>
         <Button type="button" onClick={handleClose}>
-          No way
+          Nah, it's fine
         </Button>
       </Wrapper>
     </>

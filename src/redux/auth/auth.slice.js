@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { fetchContacts } from 'redux/contacts/contacts.thunk';
 import { authInitState } from './auth.init-state';
 import { authLogin, authLogout } from './auth.operations';
 
@@ -32,6 +33,11 @@ const authSlice = createSlice({
       .addCase(authLogout.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
+      })
+      .addCase(fetchContacts.rejected, state => {
+        state.isLoading = false;
+        state.error = null;
+        state.data = null;
       }),
 });
 

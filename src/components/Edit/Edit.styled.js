@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   gap: 16px;
+  margin-top: 8px;
 `;
 
 export const Button = styled.button`
@@ -17,3 +24,13 @@ export const Button = styled.button`
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   background-color: ${props => props.theme.main};
 `;
+
+Button.defaultProps = {
+  theme: {
+    main: '#1976d2',
+  },
+};
+
+export const theme = {
+  main: '#ef5350',
+};

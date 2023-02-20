@@ -1,4 +1,15 @@
 @import-normalize; /* bring in normalize.css styles */
+:root {
+  --color-btn-main: #1976d2;
+  --color-btn-main-hover: #1565c0;
+  --color-btn-danger: #ef5350;
+  --color-btn-danger-hover: #d32f2f;
+
+  --color-text-primary: #020332;
+  --color-accent: #e65100;
+
+  --color-bg-secindary: #ececec;
+}
 
 body {
   margin: 0;
@@ -7,6 +18,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 code {

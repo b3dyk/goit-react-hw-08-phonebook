@@ -13,10 +13,12 @@ export const Filter = () => {
 
   return (
     <Input
+      id="standard-basic"
+      label="Search by name"
+      variant="standard"
       type="text"
       name="search"
       value={filter}
-      placeholder="Search by name"
       onChange={handleChange}
     />
   );

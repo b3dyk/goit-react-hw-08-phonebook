@@ -2,33 +2,25 @@ import styled from 'styled-components';
 
 export const Item = styled.li`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  gap: 8px;
   margin-bottom: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+
+  :hover {
+    background-color: var(--color-bg-secindary);
+  }
 `;
 
 export const Text = styled.p`
   margin: 0;
   margin-right: 8px;
+  max-width: 500px;
 `;
 
-export const Button = styled.button`
-  width: 100px;
-  height: 30px;
-  background-color: #ff6242;
-  border: none;
-  border-radius: 4px;
-  font-family: inherit;
-  color: white;
-  margin-left: auto;
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-
-  transition: background-color 250ms ease;
-
-  :hover,
-  :focus {
-    background-color: #db5439;
-  }
+export const BtnThumb = styled.div`
+  display: flex;
+  gap: 4px;
 `;

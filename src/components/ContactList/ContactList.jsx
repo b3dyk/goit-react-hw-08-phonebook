@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import { List } from './ContactList.styled';
 import {
   selectError,
   selectFilteredContacts,
@@ -10,6 +9,7 @@ import {
 } from 'redux/selectors';
 import { fetchContacts } from 'redux/contacts/contacts.thunk';
 import { Loader } from 'components/Loader/Loader';
+import { List } from '@mui/material';
 
 export const ContactList = () => {
   const dispatch = useDispatch();

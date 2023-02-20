@@ -1,20 +1,11 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Button, Wrapper } from './Edit.styled';
+import { Button, Form, theme, Wrapper } from './Edit.styled';
 import { ThemeProvider } from 'styled-components';
 import { editContact } from 'redux/contacts/contacts.thunk';
 import { useState } from 'react';
-
-Button.defaultProps = {
-  theme: {
-    main: '#45b6fe',
-  },
-};
-
-const theme = {
-  main: '#ff6242',
-};
+import { TextField } from '@mui/material';
 
 export const Edit = ({ id, name, number, onClose }) => {
   const [editedName, setEditedName] = useState(name);
@@ -51,34 +42,36 @@ export const Edit = ({ id, name, number, onClose }) => {
     onClose(false);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        <span>Name</span>
-        <input
-          type="text"
-          name="name"
-          value={editedName}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        <span>Number</span>
-        <input
-          type="tel"
-          name="number"
-          value={editedNumber}
-          onChange={handleChange}
-        />
-      </label>
+    <Form onSubmit={handleSubmit}>
+      <TextField
+        id="standard-basic"
+        label="Name"
+        variant="standard"
+        type="text"
+        name="name"
+        value={editedName}
+        onChange={handleChange}
+      />
+
+      <TextField
+        id="standard-basic"
+        label="Number"
+        variant="standard"
+        type="tel"
+        name="number"
+        value={editedNumber}
+        onChange={handleChange}
+      />
+
       <Wrapper>
         <ThemeProvider theme={theme}>
-          <Button>Edit</Button>
+          <Button>Accept</Button>
         </ThemeProvider>
         <Button type="button" onClick={handleClose}>
-          Cancel
+          Discard
         </Button>
       </Wrapper>
-    </form>
+    </Form>
   );
 };
 

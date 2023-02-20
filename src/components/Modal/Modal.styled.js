@@ -21,7 +21,7 @@ export const ModalWindow = styled.div`
   align-items: center;
   max-width: 500px;
   min-height: 100px;
-  padding: 20px;
+  padding: 32px;
   border-radius: 4px;
   text-align: center;
 `;
