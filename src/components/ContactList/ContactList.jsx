@@ -9,7 +9,7 @@ import {
 } from 'redux/selectors';
 import { fetchContacts } from 'redux/contacts/contacts.thunk';
 import { Loader } from 'components/Loader/Loader';
-import { List } from '@mui/material';
+import { List } from './ContactList.styled';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
