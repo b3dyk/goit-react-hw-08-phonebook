@@ -24,15 +24,15 @@ export const ContactList = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
       {error && <p>Oops, something went wrong</p>}
-      {!isLoading && !error && (
+      {!error && (
         <List>
           {contacts.map(({ id, name, number }) => (
             <ContactItem key={id} id={id} name={name} number={number} />
           ))}
         </List>
       )}
+      {isLoading && <Loader />}
     </>
   );
 };
