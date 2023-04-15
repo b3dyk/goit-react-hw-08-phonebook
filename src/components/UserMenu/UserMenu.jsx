@@ -17,7 +17,7 @@ export const UserMenu = () => {
       <Text>
         Hello, <b>{token.user?.name}</b>!
       </Text>
-      <Text>{token.user.email}</Text>
+      <Text>{token.user?.email}</Text>
 
       <Button
         variant="outlined"
